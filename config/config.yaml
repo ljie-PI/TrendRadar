@@ -615,14 +615,14 @@ advanced:
   crawler:
     request_interval: 2000 # 请求间隔（毫秒）
     use_proxy: false # 是否启用代理
-    default_proxy: "http://127.0.0.1:10801"
+    default_proxy: "http://host.docker.internal:10808"
 
   # RSS 设置
   rss:
     request_interval: 1000 # 请求间隔（毫秒）
     timeout: 15 # 请求超时（秒）
-    use_proxy: false # 是否使用代理
-    proxy_url: "" # RSS 专属代理（留空则使用 crawler.default_proxy）
+    use_proxy: true # 是否使用代理
+    proxy_url: "http://host.docker.internal:10808" # RSS 专属代理（留空则使用 crawler.default_proxy）
 
   # 排序权重（用于重新排序不同平台的热搜）
   # 合起来等于 1
