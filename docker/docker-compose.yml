@@ -4,6 +4,11 @@ services:
     container_name: trendradar
     restart: unless-stopped
 
+    # 让容器内可以通过 host.docker.internal 访问宿主机
+    # （macOS/Windows 的 Docker Desktop 默认支持；Linux 需要这个映射）
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+
     ports:
       - "127.0.0.1:${WEBSERVER_PORT:-8080}:${WEBSERVER_PORT:-8080}"
 
