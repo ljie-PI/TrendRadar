@@ -132,11 +132,6 @@ rss:
       url: "http://www.producthunt.com/feed"
       max_age_days: 1
 
-    - id: "fast-company"
-      name: "Fast Company"
-      url: "http://www.fastcodesign.com/rss.xml"
-      max_age_days: 3
-
     - id: "the-verge"
       name: "The Verge"
       url: "http://www.theverge.com/rss/full.xml"

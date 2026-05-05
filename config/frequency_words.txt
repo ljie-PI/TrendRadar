@@ -32,7 +32,6 @@
 震惊
 
 
-
 # ───────────────────────────────────────────────────────────────
 #                        词组定义区
 # ───────────────────────────────────────────────────────────────
@@ -154,7 +153,7 @@
 # ═══════════════════════════════════════════════════════════════
 /深度求索|幻方量化|梁文锋|\bDeepSeek\b/ => DeepSeek
 
-/qwen|minimax|glm|kimi|moonshot|deepseek/ => 国产开源模型
+/qwen|minimax|glm|kimi|moonshot|deepseek/ => 国产大模型
 
 /京东|刘强东|\bJD\b|\bJingdong\b/ => 京东
 
@@ -186,7 +185,7 @@
 #                         科技领域
 # ═══════════════════════════════════════════════════════════════
 
-[AI]
+[AI 相关]
 /(?<![a-zA-Z])ai(?![a-zA-Z])/
 人工智能
 智能体
@@ -210,11 +209,16 @@ cline
 /\bcowork\b/
 /\bopenclaw\b/
 /\bhermes\b/
-智能体
 chatgpt
 gemini
 claude
 copilot
+/on-device LLM|local LLM|\bSLM\b|ollama|lmstudio|llama.cpp/
+/\bvlm\b/
+世界模型
+world model
+多模态
+视觉模型
 
 [具身智能]
 机器人
