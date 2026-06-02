@@ -1,6 +1,6 @@
 # ═══════════════════════════════════════════════════════════════
 #                    TrendRadar 配置文件
-#                      Version: 2.2.0
+#                      Version: 2.3.0
 # ═══════════════════════════════════════════════════════════════
 
 # 可视化配置编辑器地址: https://sansan0.github.io/TrendRadar/
@@ -43,13 +43,24 @@ schedule:
 # ===============================================================
 # 2. 数据源 - 热榜平台
 #
+# 数据来源于 newsnow 开源项目: https://github.com/ourongxing/newsnow
+# 你可以自行部署 newsnow 并将 api_url 指向你自己的实例
+#
 # enabled: 是否启用热榜抓取（总开关）
+# api_url: 热榜数据 API 地址（可选，留空使用默认地址）
 # sources: 平台列表
 #   - id: 平台唯一标识（勿修改）
 #   - name: 显示名称（可自定义，修改后不影响运行）
+#   - expected_domain: 域名安全校验（可选，建议配置）
+#     填写主域名（如 baidu.com），自动匹配该域名及其所有子域名
+#     校验返回数据中的链接是否为 HTTPS 且域名匹配，不匹配时丢弃该平台数据并记录警告
+#     可有效防范链接劫持或数据篡改
+#     只要 api_url 不是你自己部署的实例，都推荐配置 expected_domain
 # ===============================================================
 platforms:
   enabled: true                         # 是否启用热榜平台抓取（true=启用, false=关闭）
+  api_url: ""                            # 热榜数据 API 地址（留空使用默认地址）
+                                        # 如果你自行部署了 newsnow，填入你的地址，如: https://your-domain.com/api/s
   sources:
     - id: "weibo"
       name: "微博"
@@ -89,34 +100,27 @@ rss:
     - id: "hacker-news"
       name: "Hacker News"
       url: "https://hnrss.org/frontpage"
-      max_age_days: 3
-
-    - id: "hacker-news-show"
-      name: "Hacker News: Show HN"
-      url: "http://hnrss.org/show"
-      max_age_days: 3
-
-    - id: "hacker-news-launches"
-      name: "Hacker News: Launches"
-      url: "https://hnrss.org/launches"
-      max_age_days: 3
+      max_age_days: 1
 
     - id: "product-hunt"
       name: "Product Hunt"
       url: "http://www.producthunt.com/feed"
-      max_age_days: 7
+      max_age_days: 1
 
     - id: "the-verge"
       name: "The Verge"
       url: "http://www.theverge.com/rss/full.xml"
+      max_age_days: 1
 
     - id: "tech-crunch"
       name: "Tech Crunch"
       url: "https://techcrunch.com/feed/"
+      max_age_days: 1
 
     - id: "engadget"
       name: "Engadget"
       url: "http://www.engadget.com/rss-full.xml"
+      max_age_days: 1
 
     - id: "facebook-engineering"
       name: "Facebook Engineering"
