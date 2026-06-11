@@ -175,6 +175,52 @@ rss:
       name: "Towards Data Science"
       url: "https://towardsdatascience.com/feed"
 
+    # Reddit subreddits
+    - id: "reddit-ai-agents"
+      name: "r/AI_Agents"
+      url: "https://www.reddit.com/r/AI_Agents/.rss"
+      max_age_days: 1
+
+    - id: "reddit-computervision"
+      name: "r/computervision"
+      url: "https://www.reddit.com/r/computervision/.rss"
+      max_age_days: 1
+
+    - id: "reddit-languagetechnology"
+      name: "r/LanguageTechnology"
+      url: "https://www.reddit.com/r/LanguageTechnology/.rss"
+      max_age_days: 1
+
+    - id: "reddit-llm"
+      name: "r/LLM"
+      url: "https://www.reddit.com/r/LLM/.rss"
+      max_age_days: 1
+
+    - id: "reddit-localllama"
+      name: "r/LocalLLaMA"
+      url: "https://www.reddit.com/r/LocalLLaMA/.rss"
+      max_age_days: 1
+
+    - id: "reddit-localllm"
+      name: "r/LocalLLM"
+      url: "https://www.reddit.com/r/LocalLLM/.rss"
+      max_age_days: 1
+
+    - id: "reddit-machinelearning"
+      name: "r/MachineLearning"
+      url: "https://www.reddit.com/r/MachineLearning/.rss"
+      max_age_days: 1
+
+    - id: "reddit-unsloth"
+      name: "r/unsloth"
+      url: "https://www.reddit.com/r/unsloth/.rss"
+      max_age_days: 1
+
+    - id: "reddit-vibecoding"
+      name: "r/vibecoding"
+      url: "https://www.reddit.com/r/vibecoding/.rss"
+      max_age_days: 1
+
     # 自定义源示例
     # - id: "custom-feed"
     #   name: "自定义源"
