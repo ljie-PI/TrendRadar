@@ -107,6 +107,11 @@ rss:
       url: "http://www.producthunt.com/feed"
       max_age_days: 1
 
+    - id: "fast-company"
+      name: "Fast Company"
+      url: "http://www.fastcodesign.com/rss.xml"
+      max_age_days: 1
+
     - id: "the-verge"
       name: "The Verge"
       url: "http://www.theverge.com/rss/full.xml"
@@ -284,7 +289,6 @@ display:
 notification:
   enabled: true                       # 是否启用通知功能（true=启用, false=关闭）—— 总开关
                                       # 开启 schedule 后此项仍为总开关：false=永远不推送，true=由调度控制
-
   # 推送渠道配置
   channels:
     feishu:
@@ -342,7 +346,6 @@ storage:
     txt: false                        # 是否生成 TXT 快照（true=生成, false=不生成）
     html: true                        # 是否生成 HTML 报告（true=生成, false=不生成）
                                       # ⚠️ 邮件推送或者需要看网页版报告必须设为 true
-
   # 本地存储配置
   local:
     data_dir: "output" # 数据目录
