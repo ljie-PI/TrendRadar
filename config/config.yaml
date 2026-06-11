@@ -3,9 +3,7 @@
 #                      Version: 2.3.0
 # ═══════════════════════════════════════════════════════════════
 
-
 # 可视化配置编辑器地址: https://sansan0.github.io/TrendRadar/
-
 
 # ===============================================================
 # 1. 基础设置
@@ -19,7 +17,6 @@ app:
   # 完整时区列表: https://en.wikipedia.org/wiki/List_of_tz_database_time_zones
   timezone: "Asia/Shanghai"
   show_version_update: true           # 是否显示版本更新提示（true=显示, false=隐藏）
-
 
 # ===============================================================
 # 1.5 调度系统 —— 什么时间做什么事
@@ -40,9 +37,8 @@ app:
 # 详细时间线图请查看 config/timeline.yaml
 # ===============================================================
 schedule:
-  enabled: false                        # 是否启用调度系统（true=启用, false=关闭，默认关闭）
+  enabled: true                        # 是否启用调度系统（true=启用, false=关闭，默认关闭）
   preset: "morning_evening"             # 预设模板名称（见上方说明）
-
 
 # ===============================================================
 # 2. 数据源 - 热榜平台
@@ -100,8 +96,6 @@ platforms:
       name: "知乎"
       expected_domain: "zhihu.com"
 
-
-
 # ===============================================================
 # 3. 数据源 - RSS 订阅
 #
@@ -118,9 +112,10 @@ rss:
   freshness_filter:
     enabled: true                     # 是否启用新鲜度过滤（true=启用, false=关闭）
 
-    max_age_days: 1                   # 最大文章年龄（天）
-                                      # - 正整数：只推送 N 天内的文章
-                                      # - 0：禁用过滤，推送所有文章
+    max_age_days:
+      1 # 最大文章年龄（天）
+      # - 正整数：只推送 N 天内的文章
+      # - 0：禁用过滤，推送所有文章
 
   # 单个 feed 可配置 max_age_days 覆盖全局设置：
   # - 不配置：使用全局 freshness_filter.max_age_days（默认 3 天）
@@ -130,16 +125,80 @@ rss:
     - id: "hacker-news"
       name: "Hacker News"
       url: "https://hnrss.org/frontpage"
+      max_age_days: 1
 
-    - id: "ruanyifeng"
-      name: "阮一峰的网络日志"
-      url: "http://www.ruanyifeng.com/blog/atom.xml"
-      enabled: false                  # 禁用
-      # max_age_days: 3               # 示例：推送 3 天内的文章（更新较慢的博客）
-     
-    - id: "yahoo-finance"
-      name: "雅虎财经"
-      url: "https://finance.yahoo.com/news/rssindex"
+    - id: "product-hunt"
+      name: "Product Hunt"
+      url: "http://www.producthunt.com/feed"
+      max_age_days: 1
+
+    - id: "fast-company"
+      name: "Fast Company"
+      url: "http://www.fastcodesign.com/rss.xml"
+      max_age_days: 3
+
+    - id: "the-verge"
+      name: "The Verge"
+      url: "http://www.theverge.com/rss/full.xml"
+      max_age_days: 1
+
+    - id: "tech-crunch"
+      name: "Tech Crunch"
+      url: "https://techcrunch.com/feed/"
+      max_age_days: 1
+
+    - id: "engadget"
+      name: "Engadget"
+      url: "http://www.engadget.com/rss-full.xml"
+      max_age_days: 1
+
+    - id: "facebook-engineering"
+      name: "Facebook Engineering"
+      url: "https://code.facebook.com/posts/rss"
+
+    - id: "twitter-engineering"
+      name: "Twitter Engineering"
+      url: "https://blog.twitter.com/engineering/en_us/blog.rss"
+
+    - id: "shopify-engineering"
+      name: "Shopify Engineering"
+      url: "https://shopifyengineering.myshopify.com/blogs/engineering.atom"
+
+    - id: "nvidia-developer"
+      name: "Nvidia Developer"
+      url: "https://developer.nvidia.com/blog/feed"
+
+    - id: "cmu-machine-learning"
+      name: "Machine Learning Blog @CMU"
+      url: "https://blog.ml.cmu.edu/feed/"
+
+    - id: "deepmind-blog"
+      name: "DeepMind Blog"
+      url: "https://deepmind.com/blog/feed/basic/"
+
+    - id: "mit-news-ai"
+      name: "MIT News - Arigficial intelligence"
+      url: "http://news.mit.edu/rss/topic/artificial-intelligence2"
+
+    - id: "berkeley-ai-research"
+      name: "The Berkeley AI Research Blog"
+      url: "http://bair.berkeley.edu/blog/feed.xml"
+
+    - id: "openai-engineering"
+      name: "OpenAI Engineering"
+      url: "https://openai.com/news/engineering/rss.xml"
+
+    - id: "nlp-news"
+      name: "NLP News"
+      url: "http://newsletter.ruder.io/?format=rss"
+
+    - id: "google-ai"
+      name: "Google AI Blog"
+      url: "http://googleresearch.blogspot.com/atom.xml"
+
+    - id: "towards-data-science"
+      name: "Towards Data Science"
+      url: "https://towardsdatascience.com/feed"
 
     # 自定义源示例
     # - id: "custom-feed"
@@ -147,7 +206,6 @@ rss:
     #   url: "https://example.com/feed.xml"
     #   enabled: false
     #   max_age_days: 0               # 示例：禁用过滤，推送所有文章
-
 
 # ===============================================================
 # 4. 报告模式
@@ -166,10 +224,9 @@ report:
                                       # true = 按 frequency_words.txt 的定义顺序
                                       # false = 按匹配到的热点条数排序（多的在前）
 
-  rank_threshold: 5                   # 排名高亮阈值（影响展示强调，不改变抓取范围）
+  rank_threshold: 5 # 排名高亮阈值（影响展示强调，不改变抓取范围）
 
-  max_news_per_keyword: 0             # 每个关键词/标签最大显示数量（0=不限制，仅影响展示裁剪）
-
+  max_news_per_keyword: 0 # 每个关键词/标签最大显示数量（0=不限制，仅影响展示裁剪）
 
 # ===============================================================
 # 4.5 筛选策略
@@ -184,7 +241,6 @@ filter:
   priority_sort_enabled: true          # AI 模式标签排序（仅 method=ai 时生效）
                                        # true = 按兴趣描述中的定义顺序
                                        # false = 按匹配条数排序（多的在前）
-
 
 # ===============================================================
 # 4.6 AI 智能筛选配置（仅 filter.method=ai 时生效）
@@ -215,7 +271,6 @@ ai_filter:
   # 标签更新提示词模板（兴趣变更时 AI 对比新旧标签）
   update_tags_prompt_file: "update_tags_prompt.txt"
 
-
 # ===============================================================
 # 5. 推送内容控制
 #
@@ -226,11 +281,11 @@ display:
   # 调整顺序：剪切粘贴整行即可
   # 要显示某个区域，需同时：1. 在此列表中  2. 下方 regions 对应开关为 true
   region_order:
-    - new_items                           # 1️⃣ 新增热点区域
-    - hotlist                             # 2️⃣ 热榜区域（关键词匹配 / AI 智能筛选）
-    - rss                                 # 3️⃣ RSS 订阅区域
-    - standalone                          # 4️⃣ 独立展示区
-    - ai_analysis                         # 5️⃣ AI 分析区域
+    - new_items # 1️⃣ 新增热点区域
+    - hotlist # 2️⃣ 热榜区域（关键词匹配 / AI 智能筛选）
+    - rss # 3️⃣ RSS 订阅区域
+    - standalone # 4️⃣ 独立展示区
+    - ai_analysis # 5️⃣ AI 分析区域
 
   # 推送区域开关（需配合上方 region_order 使用）
   regions:
@@ -249,7 +304,6 @@ display:
     rss_feeds: []                                # RSS 源 ID 列表（如 ["hacker-news"]）
     max_items: 20                                # 每个源最多展示条数（0=不限制）
 
-
 # ===============================================================
 # 6. 推送通知
 #
@@ -262,47 +316,46 @@ display:
 notification:
   enabled: true                       # 是否启用通知功能（true=启用, false=关闭）—— 总开关
                                       # 开启 schedule 后此项仍为总开关：false=永远不推送，true=由调度控制
-
   # 推送渠道配置
   channels:
     feishu:
-      webhook_url: ""                 # 飞书机器人 webhook URL
+      webhook_url: "" # 飞书机器人 webhook URL
 
     dingtalk:
-      webhook_url: ""                 # 钉钉机器人 webhook URL
+      webhook_url: "" # 钉钉机器人 webhook URL
 
     wework:
-      webhook_url: ""                 # 企业微信机器人 webhook URL
-      msg_type: "markdown"            # 消息类型：markdown(群机器人) | text(个人微信应用)
+      webhook_url: "" # 企业微信机器人 webhook URL
+      msg_type: "markdown" # 消息类型：markdown(群机器人) | text(个人微信应用)
 
     telegram:
-      bot_token: ""                   # Telegram Bot Token
-      chat_id: ""                     # Telegram Chat ID
+      bot_token: "" # Telegram Bot Token
+      chat_id: "" # Telegram Chat ID
 
     email:
-      from: ""                        # 发件人邮箱地址
-      password: ""                    # 发件人邮箱密码或授权码
-      to: ""                          # 收件人邮箱，多个用逗号分隔
-      smtp_server: ""                 # SMTP 服务器（可选，留空自动识别）
-      smtp_port: ""                   # SMTP 端口（可选，留空自动识别）
+      from: "" # 发件人邮箱地址
+      password: "" # 发件人邮箱密码或授权码
+      to: "" # 收件人邮箱，多个用逗号分隔
+      smtp_server: "" # SMTP 服务器（可选，留空自动识别）
+      smtp_port: "" # SMTP 端口（可选，留空自动识别）
 
     ntfy:
-      server_url: "https://ntfy.sh"   # ntfy 服务器地址（可改为自托管）
-      topic: ""                       # ntfy 主题名称
-      token: ""                       # ntfy 访问令牌（可选，用于私有主题）
+      server_url: "https://ntfy.sh" # ntfy 服务器地址（可改为自托管）
+      topic: "" # ntfy 主题名称
+      token: "" # ntfy 访问令牌（可选，用于私有主题）
 
     bark:
-      url: ""                         # Bark 推送 URL（格式：https://api.day.app/your_device_key）
+      url: "" # Bark 推送 URL（格式：https://api.day.app/your_device_key）
 
     slack:
-      webhook_url: ""                 # Slack Incoming Webhook URL
+      webhook_url: "" # Slack Incoming Webhook URL
 
     generic_webhook:
-      webhook_url: ""                 # 通用 Webhook URL（支持 Discord、Matrix、IFTTT 等）
-      payload_template: ""            # JSON 模板，支持 {title} 和 {content} 占位符
-                                      # 示例：{"content": "{content}"}
-                                      # 留空则使用默认格式：{"title": "{title}", "content": "{content}"}
-
+      webhook_url: "" # 通用 Webhook URL（支持 Discord、Matrix、IFTTT 等）
+      payload_template:
+        "" # JSON 模板，支持 {title} 和 {content} 占位符
+        # 示例：{"content": "{content}"}
+        # 留空则使用默认格式：{"title": "{title}", "content": "{content}"}
 
 # ===============================================================
 # 7. 存储配置
@@ -320,33 +373,32 @@ storage:
     txt: false                        # 是否生成 TXT 快照（true=生成, false=不生成）
     html: true                        # 是否生成 HTML 报告（true=生成, false=不生成）
                                       # ⚠️ 邮件推送或者需要看网页版报告必须设为 true
-
   # 本地存储配置
   local:
-    data_dir: "output"                # 数据目录
-    retention_days: 0                 # 保留天数（0=永久保留）
+    data_dir: "output" # 数据目录
+    retention_days: 0 # 保留天数（0=永久保留）
 
   # 远程存储配置（S3 兼容协议）
   # 支持: Cloudflare R2, 阿里云 OSS, 腾讯云 COS, AWS S3, MinIO 等
   # 建议将敏感信息配置在 GitHub Secrets 或环境变量中
   remote:
-    retention_days: 0                 # 保留天数（0=永久保留）
+    retention_days: 0 # 保留天数（0=永久保留）
 
     # S3 兼容配置（或使用环境变量 S3_ENDPOINT_URL 等）
-    endpoint_url: ""                  # 服务端点
-                                      # Cloudflare R2: https://<account_id>.r2.cloudflarestorage.com
-                                      # 阿里云 OSS: https://oss-cn-hangzhou.aliyuncs.com
-                                      # 腾讯云 COS: https://cos.ap-guangzhou.myqcloud.com
-    bucket_name: ""                   # 存储桶名称
-    access_key_id: ""                 # 访问密钥 ID
-    secret_access_key: ""             # 访问密钥
-    region: ""                        # 区域（可选，部分服务商需要）
+    endpoint_url:
+      "" # 服务端点
+      # Cloudflare R2: https://<account_id>.r2.cloudflarestorage.com
+      # 阿里云 OSS: https://oss-cn-hangzhou.aliyuncs.com
+      # 腾讯云 COS: https://cos.ap-guangzhou.myqcloud.com
+    bucket_name: "" # 存储桶名称
+    access_key_id: "" # 访问密钥 ID
+    secret_access_key: "" # 访问密钥
+    region: "" # 区域（可选，部分服务商需要）
 
   # 数据拉取（从远程同步到本地，用于 MCP Server 等场景）
   pull:
     enabled: false                    # 是否启用启动时自动拉取（true=启用, false=关闭）
     days: 7                           # 拉取最近 N 天的数据
-
 
 # ===============================================================
 # 8. AI 模型配置（ai_analysis / ai_translation / ai_filter 共用）
@@ -387,25 +439,25 @@ ai:
                                     #    加上 openai/ 就是告诉系统"用这套通用格式去连接"，
                                     #    这样几乎任何服务商都能接入。
 
+  timeout: 120 # 请求超时（秒）
 
-  timeout: 120                      # 请求超时（秒）
+  temperature:
+    1.0 # 采样温度 (0.0-2.0)
+    # 注意：部分模型(如 gpt-5)可能要求必须为 1.0，否则会报错
 
-  temperature: 1.0                  # 采样温度 (0.0-2.0)
-                                    # 注意：部分模型(如 gpt-5)可能要求必须为 1.0，否则会报错
-  
-  max_tokens: 5000                  # 最大生成 token 数
-                                    # 注意：如果 API 不支持此参数(报 HTTP 400)，请设为 0 以禁用发送
+  max_tokens:
+    5000 # 最大生成 token 数
+    # 注意：如果 API 不支持此参数(报 HTTP 400)，请设为 0 以禁用发送
   # 高级选项
-  num_retries: 1                    # 失败重试次数
-  fallback_models: []               # 备用模型列表（可选）
-                                    # 示例: ["openai/gpt-4o-mini", "openai/deepseek-ai/DeepSeek-V3"]
+  num_retries: 1 # 失败重试次数
+  fallback_models: [] # 备用模型列表（可选）
+    # 示例: ["openai/gpt-4o-mini", "openai/deepseek-ai/DeepSeek-V3"]
 
   # 额外参数（一般无需修改，删掉 # 号即可启用）
   # extra_params:
   #   top_p: 1.0
   #   presence_penalty: 0.0
   #   stop: ["END"]
-
 
 # ===============================================================
 # 9. AI 分析功能（模型配置见上方 ai 段）
@@ -431,8 +483,17 @@ ai_analysis:
                                     # true = 完整轨迹（如 1(09:30)→2(10:00)），AI 分析更准但多耗 0.5~1 倍 token
                                     # false = 简化格式（排名范围+出现次数），更省 token
 
+  include_rss: true # 是否包含 RSS 内容进行分析
 
+  include_standalone:
+    true # 是否将独立展示区数据纳入 AI 分析
+    # 数据源列表来自 display.standalone.platforms / display.standalone.rss_feeds
 
+  include_rank_timeline:
+    true # 是否传递完整排名时间线
+    # false: 使用简化格式（排名范围+时间范围+出现次数）
+    # true: 传递完整排名变化轨迹（如 1(09:30)→2(10:00)→0(11:00)）
+    # 启用后 AI 能更精确分析热度趋势，但会额外增加 token 消耗（0.5 倍到 1 倍）
 
 # ===============================================================
 # 10. AI 翻译功能（模型配置见上方 ai 段）
@@ -449,7 +510,6 @@ ai_translation:
     hotlist: false                  # 翻译热榜标题（true=翻译, false=不翻译）
     rss: true                       # 翻译 RSS 标题（true=翻译, false=不翻译）
     standalone: true                # 翻译独立展示区标题（true=翻译, false=不翻译）
-
 
 # ===============================================================
 # 11. 高级设置（一般无需修改）
@@ -478,12 +538,12 @@ advanced:
   # 排序权重（用于重新排序不同平台的热搜）
   # 合起来等于 1
   weight:
-    rank: 0.6                         # 排名权重
-    frequency: 0.3                    # 频次权重
-    hotness: 0.1                      # 热度权重
+    rank: 0.6 # 排名权重
+    frequency: 0.3 # 频次权重
+    hotness: 0.1 # 热度权重
 
   # 多账号限制
-  max_accounts_per_channel: 3         # 每个渠道最大账号数量
+  max_accounts_per_channel: 3 # 每个渠道最大账号数量
 
   # 以下为内部参数（一般无需修改）
   # 消息分批大小（字节）- 内部配置，请勿修改
@@ -493,5 +553,5 @@ advanced:
     feishu: 30000
     bark: 4000
     slack: 4000
-  batch_send_interval: 3              # 批次发送间隔（秒）
+  batch_send_interval: 3 # 批次发送间隔（秒）
   feishu_message_separator: "━━━━━━━━━━━━━━━━"

@@ -1,0 +1,40 @@
+# Python
+__pycache__/
+.venv/
+venv/
+env/
+ENV/
+.env
+.python-version
+
+.pytest_cache/
+.ruff_cache/
+
+# Jupyter
+.ipynb_checkpoints/
+
+# IDE / editors
+.vscode/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# output
+output/
+
+# Logs & temp
+*.log
+logs/
+*.tmp
+*.bak
+
+# Local environment overrides
+.env
+.env.local
+.env.*.local
+docker/.env
+
+# Node (if any frontend tooling is used)
+node_modules/
+
