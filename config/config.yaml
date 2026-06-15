@@ -130,6 +130,7 @@ rss:
     - id: "facebook-engineering"
       name: "Facebook Engineering"
       url: "https://code.facebook.com/posts/rss"
+      max_age_days: 7
 
     - id: "twitter-engineering"
       name: "Twitter Engineering"
@@ -142,26 +143,32 @@ rss:
     - id: "nvidia-developer"
       name: "Nvidia Developer"
       url: "https://developer.nvidia.com/blog/feed"
+      max_age_days: 7
 
     - id: "cmu-machine-learning"
       name: "Machine Learning Blog @CMU"
       url: "https://blog.ml.cmu.edu/feed/"
+      max_age_days: 7
 
     - id: "deepmind-blog"
       name: "DeepMind Blog"
       url: "https://deepmind.com/blog/feed/basic/"
+      max_age_days: 7
 
     - id: "mit-news-ai"
       name: "MIT News - Arigficial intelligence"
       url: "http://news.mit.edu/rss/topic/artificial-intelligence2"
+      max_age_days: 7
 
     - id: "berkeley-ai-research"
       name: "The Berkeley AI Research Blog"
       url: "http://bair.berkeley.edu/blog/feed.xml"
+      max_age_days: 7
 
     - id: "openai-engineering"
       name: "OpenAI Engineering"
       url: "https://openai.com/news/engineering/rss.xml"
+      max_age_days: 7
 
     - id: "nlp-news"
       name: "NLP News"
@@ -170,17 +177,13 @@ rss:
     - id: "google-ai"
       name: "Google AI Blog"
       url: "http://googleresearch.blogspot.com/atom.xml"
+      max_age_days: 7
 
     - id: "towards-data-science"
       name: "Towards Data Science"
       url: "https://towardsdatascience.com/feed"
 
     # Reddit subreddits
-    - id: "reddit-ai-agents"
-      name: "r/AI_Agents"
-      url: "https://www.reddit.com/r/AI_Agents/.rss"
-      max_age_days: 1
-
     - id: "reddit-computervision"
       name: "r/computervision"
       url: "https://www.reddit.com/r/computervision/.rss"
@@ -189,6 +192,11 @@ rss:
     - id: "reddit-languagetechnology"
       name: "r/LanguageTechnology"
       url: "https://www.reddit.com/r/LanguageTechnology/.rss"
+      max_age_days: 1
+
+    - id: "reddit-machinelearning"
+      name: "r/MachineLearning"
+      url: "https://www.reddit.com/r/MachineLearning/.rss"
       max_age_days: 1
 
     - id: "reddit-llm"
@@ -204,11 +212,6 @@ rss:
     - id: "reddit-localllm"
       name: "r/LocalLLM"
       url: "https://www.reddit.com/r/LocalLLM/.rss"
-      max_age_days: 1
-
-    - id: "reddit-machinelearning"
-      name: "r/MachineLearning"
-      url: "https://www.reddit.com/r/MachineLearning/.rss"
       max_age_days: 1
 
     - id: "reddit-unsloth"
@@ -313,14 +316,14 @@ display:
                                       # 注：热点词汇统计中的新增标记🆕不受此配置影响
 
     rss: true                         # RSS 订阅区域（true=显示并分析, false=隐藏并跳过分析）
-    standalone: false                 # 独立展示区：完整热榜/RSS，不受关键词过滤（true=显示, false=隐藏）
+    standalone: true                  # 独立展示区：完整热榜/RSS，不受关键词过滤（true=显示, false=隐藏）
     ai_analysis: true                 # AI 分析区域（true=显示, false=隐藏）
 
   # 独立展示区：将指定平台/RSS 完整展示，不受关键词过滤
   # 推送展示由 regions.standalone 控制，AI 分析由 ai_analysis.include_standalone 控制
   standalone:
     platforms: ["zhihu", "wallstreetcn-hot"]     # 热榜平台 ID 列表（如 ["zhihu", "weibo"]）
-    rss_feeds: []                                # RSS 源 ID 列表（如 ["hacker-news"]）
+    rss_feeds: ["product-hunt", "deepmind-blog", "openai-engineering", "mit-news-ai", "berkeley-ai-research", "facebook-engineering", "nvidia-developer", "google-ai", "cmu-machine-learning"]   # RSS 源 ID 列表（如 ["hacker-news"]）
     max_items: 20                                # 每个源最多展示条数（0=不限制）
 
 # ===============================================================
