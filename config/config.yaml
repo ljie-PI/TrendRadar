@@ -62,14 +62,10 @@ platforms:
   api_url: ""                            # 热榜数据 API 地址（留空使用默认地址）
                                         # 如果你自行部署了 newsnow，填入你的地址，如: https://your-domain.com/api/s
   sources:
-    - id: "weibo"
-      name: "微博"
     - id: "zhihu"
       name: "知乎"
     - id: "wallstreetcn-hot"
       name: "华尔街见闻"
-    - id: "bilibili-hot-search"
-      name: "bilibili 热搜"
 
 # ===============================================================
 # 3. 数据源 - RSS 订阅
@@ -226,6 +222,36 @@ rss:
     - id: "reddit-vibecoding"
       name: "r/vibecoding"
       url: "https://www.reddit.com/r/vibecoding/.rss"
+      max_age_days: 1
+
+    - id: "jiqizhixin"
+      name: "微信公众号-机器之心"
+      url: "https://decemberpei.cyou/rssbox/wechat-jiqizhixin.xml"
+      max_age_days: 1
+
+    - id: "liangziwei"
+      name: "微信公众号-量子位"
+      url: "https://decemberpei.cyou/rssbox/wechat-liangziwei.xml"
+      max_age_days: 1
+
+    - id: "xinzhiyuan"
+      name: "微信公众号-新智元"
+      url: "https://decemberpei.cyou/rssbox/wechat-xinzhiyuan.xml"
+      max_age_days: 1
+
+    - id: "deeptech"
+      name: "微信公众号-DeepTech深科技"
+      url: "https://decemberpei.cyou/rssbox/wechat-shenkeji.xml"
+      max_age_days: 1
+
+    - id: "paperweekly"
+      name: "微信公众号-PaperWeekly"
+      url: "https://decemberpei.cyou/rssbox/wechat-paperweekly.xml"
+      max_age_days: 1
+
+    - id: "ai-frontier"
+      name: "微信公众号-AI前线"
+      url: "https://decemberpei.cyou/rssbox/wechat-aiqianxian.xml"
       max_age_days: 1
 
     # 自定义源示例
